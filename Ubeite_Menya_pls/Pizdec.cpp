@@ -11,24 +11,15 @@
 
 using namespace std;
 
-void ShowAverageForStudent(Student& stud,wofstream& fout)
-{
-	
-	int a = 0;
-	for(auto b : stud.subject )
-	{
-		a = a + b.second;
-	}
-	a = a / 3;
-	fout << stud.name << " " << stud.surname << " " << stud.fatherName << " average : ";
-	fout << a << endl;
-}
 
 void Average(vector<Student>& studentVector,wofstream& fout)
 {
 
-	for (auto a : studentVector)
-		ShowAverageForStudent(a,fout);
+	for (auto stud : studentVector)
+	{
+		fout << stud.name << " " << stud.surname << " " << stud.fatherName << " average : ";
+		fout << stud.average << endl;
+	}
 
 }
 
@@ -57,6 +48,13 @@ vector<Student> FillVector(string way)
 			str_stream1 >> subj >> mark;
 			stud.subject.insert(pair<wstring, int>(subj, mark));
 		}
+		int a = 0;
+		for (auto b : stud.subject)
+		{
+			a = a + b.second;
+		}
+		a = a / 3;
+		stud.average = a;
 
 		StudentVector.push_back(stud);
 	}

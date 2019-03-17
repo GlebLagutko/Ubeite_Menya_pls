@@ -15,6 +15,7 @@ public :
 	wstring surname;
 	wstring fatherName;
 	map<wstring,int> subject;
+	int average;
 
 	Student() {}
 
@@ -22,7 +23,8 @@ public :
 		: name(other.name),
 		surname(other.surname),
 		fatherName(other.fatherName),
-		subject(other.subject)
+		subject(other.subject),
+	    average(other.average)
 	{
 	}
 
@@ -30,11 +32,20 @@ public :
 		: name(std::move(other.name)),
 		surname(std::move(other.surname)),
 		fatherName(std::move(other.fatherName)),
-		subject(std::move(other.subject))
+		subject(std::move(other.subject)),
+		average(std::move(other.average))
 	{
 	}
 
-	
+	void SetAverage(int a)
+	{
+		this->average = a;
+	}
+
+	int GetAverage()
+	{
+		return this->average;
+	}
 
 	wstring GetName() const
 	{
@@ -84,7 +95,8 @@ public :
 		return lhs.name == rhs.name
 			&& lhs.surname == rhs.surname
 			&& lhs.fatherName == rhs.fatherName
-			&& lhs.subject == rhs.subject;
+			&& lhs.subject == rhs.subject
+		    && lhs.average == rhs.average;
 	}
 
 	friend bool operator!=(const Student& lhs, const Student& rhs)
@@ -100,6 +112,7 @@ public :
 		surname = other.surname;
 		fatherName = other.fatherName;
 		subject = other.subject;
+		average = other.average;
 		return *this;
 	}
 
@@ -111,6 +124,7 @@ public :
 		surname = std::move(other.surname);
 		fatherName = std::move(other.fatherName);
 		subject = std::move(other.subject);
+		average = std::move(other.average);
 		return *this;
 	}
 	
