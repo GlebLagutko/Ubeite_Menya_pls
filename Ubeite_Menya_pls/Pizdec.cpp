@@ -11,23 +11,24 @@
 
 using namespace std;
 
-void ShowAverageForStudent(Student& stud)
+void ShowAverageForStudent(Student& stud,wofstream& fout)
 {
+	
 	int a = 0;
 	for(auto b : stud.subject )
 	{
 		a = a + b.second;
 	}
 	a = a / 3;
-	wcout << stud.name << " " << stud.surname << " " << stud.fatherName << " average : ";
-	wcout << a << endl;
+	fout << stud.name << " " << stud.surname << " " << stud.fatherName << " average : ";
+	fout << a << endl;
 }
 
-void Average(vector<Student>& studentVector)
+void Average(vector<Student>& studentVector,wofstream& fout)
 {
 
 	for (auto a : studentVector)
-		ShowAverageForStudent(a);
+		ShowAverageForStudent(a,fout);
 
 }
 
@@ -66,7 +67,8 @@ vector<Student> FillVector(string way)
 void Menu(string way)
 {
 	auto a = FillVector(way);
-	Average(a);
+	wofstream fout("C:\\Users\\Dell\\source\\repos\\Ubeite_Menya_pls\\output.txt");
+	Average(a,fout);
 
 }
 
