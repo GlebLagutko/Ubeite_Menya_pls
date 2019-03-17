@@ -26,19 +26,16 @@ int FindMedian(vector<Student>& studentVector)
 	{
 		median = marks[marks.size() / 2];
 	}
-
 	return median;
 }
 
 void Average(vector<Student>& studentVector,wofstream& fout)
 {
-
 	for (auto stud : studentVector)
 	{
 		fout << stud.name << " " << stud.surname << " " << stud.fatherName << " average : ";
 		fout << stud.average << endl;
 	}
-
 }
 
 
@@ -71,27 +68,29 @@ vector<Student> FillVector(string way)
 		{
 			a = a + b.second;
 		}
-		a = a / 3;
+		a = a / stud.subject.size();
 		stud.average = a;
-
 		StudentVector.push_back(stud);
 	}
-
 	return StudentVector;
 }
 
-void Menu(string way)
+void Menu(string way1,string way2)
 {
-	auto a = FillVector(way);
+	auto a1 = FillVector(way1);
 	wofstream fout("C:\\Users\\Dell\\source\\repos\\Ubeite_Menya_pls\\output.txt");
-	Average(a,fout);
-	FindMedian(a);
-
+	fout << "First group : " << endl;;
+	Average(a1,fout);
+	fout << "Median : " << FindMedian(a1);
+	fout << endl;
+	auto a2 = FillVector(way2);
+	fout << "Second group : " << endl;
+	Average(a2, fout);
+	fout << "Median : " << FindMedian(a2);
 }
 
 int main()
 {
-	Menu("C:\\Users\\Dell\\source\\repos\\Ubeite_Menya_pls\\KR.txt");
-
+	Menu("C:\\Users\\Dell\\source\\repos\\Ubeite_Menya_pls\\KR.txt", "C:\\Users\\Dell\\source\\repos\\Ubeite_Menya_pls\\KR2.txt");
 	system("pause");
 }

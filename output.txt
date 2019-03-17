@@ -1,5 +1,14 @@
+First group : 
 Koshieliov Jelizar Fokich average : 9
 Gierasimov Mitrofan Jevtikhijevich average : 7
 Koshieliov Jegor Platonovich average : 9
 Panova Mielanja Mitrofanovna average : 5
 Afanasjeva Kapitolina Vavilichna average : 7
+Median : 7
+Second group : 
+Krasilnikov Andron Jepifanovich average : 6
+Shchierbakov Akindin Klimovich average : 5
+Kirillov Filipp Patrikiejevich average : 5
+Fokina Ksienija Agapovna average : 9
+Andriejeva Fievronija Arsienjevna average : 9
+Median : 6
