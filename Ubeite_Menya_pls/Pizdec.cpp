@@ -11,6 +11,24 @@
 
 using namespace std;
 
+int FindMedian(vector<Student>& studentVector)
+{
+	vector<int> marks;
+	for (auto a : studentVector)
+		marks.push_back(a.average); 
+	sort(marks.begin(), marks.end());
+	int median;
+	if (marks.size() % 2 == 0)
+	{
+		median = (marks[marks.size() / 2 - 1] + marks[marks.size() / 2]) / 2;
+	}
+	else
+	{
+		median = marks[marks.size() / 2];
+	}
+
+	return median;
+}
 
 void Average(vector<Student>& studentVector,wofstream& fout)
 {
@@ -67,6 +85,7 @@ void Menu(string way)
 	auto a = FillVector(way);
 	wofstream fout("C:\\Users\\Dell\\source\\repos\\Ubeite_Menya_pls\\output.txt");
 	Average(a,fout);
+	FindMedian(a);
 
 }
 
